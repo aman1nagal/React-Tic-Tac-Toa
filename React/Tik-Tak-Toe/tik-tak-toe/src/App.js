@@ -50,14 +50,14 @@ const App=()=>{
   return(
     <div className='app-body'>
       <ToastContainer position='bottom-center'/>
-      <h1>Lets Play Tic Tac Toe </h1>
+      <h1 className='heading'>Lets Play Tic Tac Toe </h1>
       {winMsg ?(
         <div> 
-        <h2>{winMsg}</h2>
-        <button onClick={resetGame}>Play Again</button>
+        <h2 className='turn'>{winMsg}</h2>
+        <button onClick={resetGame} className="play-button">Play Again</button>
         </div>
       ):(
-        <h1>{isCross?"Cross":"Circle"}'s Turn</h1>
+        <h1 className='turn'>{isCross?"Cross":"Circle"}'s Turn</h1>
       )}
       <div className="container">
         {tictaktoeAray.map((value,index)=>(
