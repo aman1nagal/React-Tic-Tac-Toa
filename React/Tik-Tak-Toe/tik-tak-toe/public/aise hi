@@ -1,0 +1,42 @@
+ const [isCross,setIsCross]=useState(true)
+  const [winMsg,setWinMsg]=useState("")
+  //Reset Games
+  function resetGame(){
+    tictaktoeAray.fill("")
+    setIsCross(true)
+    setWinMsg("")
+  }
+  // Check for Winner
+  function checkWinner(){
+    if(tictaktoeAray[0]==tictaktoeAray[1]&&tictaktoeAray[1]==tictaktoeAray[2]&&tictaktoeAray[0]!=""){
+      setWinMsg(tictaktoeAray[0]+"Won The Game")
+    }
+    else if(tictaktoeAray[3]==tictaktoeAray[4]&&tictaktoeAray[4]==tictaktoeAray[5]&&tictaktoeAray[3]!=""){
+      setWinMsg(tictaktoeAray[3]+"Won The Game")
+    }else if(tictaktoeAray[6]==tictaktoeAray[7]&&tictaktoeAray[7]==tictaktoeAray[8]&&tictaktoeAray[6]!=""){
+      setWinMsg(tictaktoeAray[6]+"Won The Game")
+    }else if(tictaktoeAray[0]==tictaktoeAray[3]&&tictaktoeAray[3]==tictaktoeAray[6]&&tictaktoeAray[0]!=""){
+      setWinMsg(tictaktoeAray[0]+"Won The Game")
+    }else if(tictaktoeAray[1]==tictaktoeAray[4]&&tictaktoeAray[4]==tictaktoeAray[7]&&tictaktoeAray[1]!=""){
+      setWinMsg(tictaktoeAray[6]+"Won The Game")
+    }else if(tictaktoeAray[2]==tictaktoeAray[5]&&tictaktoeAray[5]==tictaktoeAray[8]&&tictaktoeAray[2]!=""){
+      setWinMsg(tictaktoeAray[6]+"Won The Game")
+    }else if(tictaktoeAray[0]==tictaktoeAray[4]&&tictaktoeAray[4]==tictaktoeAray[8]&&tictaktoeAray[0]!=""){
+    setWinMsg(tictaktoeAray[6]+"Won The Game")
+    }else if(tictaktoeAray[2]==tictaktoeAray[4]&&tictaktoeAray[4]==tictaktoeAray[6]&&tictaktoeAray[2]!=""){
+      setWinMsg(tictaktoeAray[6]+"Won The Game")
+    }
+  }
+  function playgame(index){
+    if(winMsg)
+    {
+      return toast("Game has already got over")
+    }else if(tictaktoeAray[index]!=""){
+       return toast("Already Filled")
+    }
+    else{
+      tictaktoeAray[index]=isCross?"Cross":"Circle"
+      setIsCross(!isCross)
+    }
+    checkWinner()
+  }
